@@ -35,7 +35,6 @@ export default defineConfig({
         ui: {
           // Niccolò non può creare/eliminare: c'è un solo file di contenuti
           allowedActions: { create: false, delete: false },
-          router: () => '/',
         },
         fields: [
           // ---------- SITO ----------
@@ -181,7 +180,6 @@ export default defineConfig({
         match: { include: 'partner' },
         ui: {
           allowedActions: { create: false, delete: false },
-          router: () => '/partner',
         },
         fields: [
           {
