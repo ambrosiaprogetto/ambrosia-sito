@@ -1,0 +1,206 @@
+---
+import '../styles/global.css';
+import contenuti from '../../content/contenuti.json';
+
+const { sito, hero, chiSiamo, cosaFacciamo, catalogo, contatti, footer } = contenuti;
+---
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{sito.titoloPagina}</title>
+<meta name="description" content={sito.descrizione} />
+<meta property="og:title" content="Ambrosia Laboratorio" />
+<meta property="og:description" content={sito.descrizione} />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">Ambrosia <small>Laboratorio</small></a>
+    <nav id="navmenu">
+      <ul>
+        <li><a href="#chi-siamo">Chi siamo</a></li>
+        <li><a href="#cosa-facciamo">Cosa facciamo</a></li>
+        <li><a href="#catalogo">Catalogo</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+        <li><a href={catalogo.linkCatalogo} target="_blank" rel="noopener" class="nav-cta">Catalogo online</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Apri il menu">☰</button>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <svg class="thread" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-50,120 C300,40 500,260 720,160 1000,40 1150,260 1300,180" fill="none" stroke="#a8632f" stroke-width="1.4" stroke-dasharray="3 9" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow">{hero.eyebrow}</span>
+      <h1>{hero.titoloParte1} <em>{hero.titoloEnfasi}</em>{hero.titoloParte2}</h1>
+      <p class="lede">{hero.sottotitolo}</p>
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn btn-primary">Scopri i prodotti</a>
+        <a href="#chi-siamo" class="btn btn-ghost">La nostra storia</a>
+      </div>
+      <div class="hero-tags">
+        {hero.tags.map((t) => <span class="tag">{t.testo}</span>)}
+      </div>
+    </div>
+    {hero.immagine && (
+      <div class="hero-photo reveal">
+        <img src={hero.immagine} alt={hero.immagineAlt || 'Ambrosia Laboratorio'} width="900" height="600" />
+      </div>
+    )}
+  </div>
+</section>
+
+<section id="chi-siamo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{chiSiamo.eyebrow}</span>
+      <h2 set:html={chiSiamo.titolo.replace(', e', ',<br>e')} />
+    </div>
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <p class="about-lead">{chiSiamo.introForte}</p>
+        {chiSiamo.paragrafi.map((p) => <p>{p.testo}</p>)}
+        <div class="cert">
+          <span class="badge">AiC</span>
+          <span>{chiSiamo.certificazione}</span>
+        </div>
+      </div>
+      <aside class="about-side reveal">
+        <p class="quote">«{chiSiamo.citazione}»</p>
+        <p class="who">{chiSiamo.noteCitazione}</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="cosa-facciamo" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{cosaFacciamo.eyebrow}</span>
+      <h2>{cosaFacciamo.titolo}</h2>
+      <p>{cosaFacciamo.sottotitolo}</p>
+    </div>
+    <div class="offer">
+      {cosaFacciamo.servizi.map((s, i) => (
+        <article class="card reveal" style={i === cosaFacciamo.servizi.length - 1 && cosaFacciamo.servizi.length % 2 === 1 ? 'grid-column:1/-1' : ''}>
+          {s.immagine && <div class="card-photo"><img src={s.immagine} alt={s.titolo} loading="lazy" width="600" height="400" /></div>}
+          <span class="num">{s.etichetta}</span>
+          <h3>{s.titolo}</h3>
+          <p>{s.descrizione}</p>
+          <ul>{s.tags.map((t) => <li>{t.testo}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="catalog reveal">
+      <div class="ct-text">
+        <span class="eyebrow">{catalogo.eyebrow}</span>
+        <h2>{catalogo.titolo}</h2>
+        <p>{catalogo.descrizione}</p>
+        <span class="live"><span class="dot"></span> {catalogo.noteLive}</span>
+        <br />
+        <a href={catalogo.linkCatalogo} target="_blank" rel="noopener" class="btn btn-cream">{catalogo.testoBottone}</a>
+      </div>
+      <div class="ct-card" aria-hidden="true">
+        <div class="ct-img" style={catalogo.anteprimaImmagine ? `background-image:url(${catalogo.anteprimaImmagine})` : ''}>{!catalogo.anteprimaImmagine && catalogo.anteprimaImmagineLabel}</div>
+        <h4>{catalogo.anteprimaNome}</h4>
+        <div class="price">{catalogo.anteprimaPrezzo}</div>
+        <div class="aller"><span>Senza glutine</span><span>Lievito</span></div>
+        <div class="nofree"><b>✓</b> Valori nutrizionali e ingredienti completi nel portale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contatti" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{contatti.eyebrow}</span>
+      <h2>{contatti.titolo}</h2>
+      <p>{contatti.sottotitolo}</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="ci">
+          <span class="lbl">Telefono</span>
+          <a href={`tel:${contatti.telefonoLink}`}>{contatti.telefono}</a>
+        </div>
+        <div class="ci">
+          <span class="lbl">Email</span>
+          <a href={`mailto:${contatti.email}`}>{contatti.email}</a>
+        </div>
+        <div class="ci">
+          <span class="lbl">Catalogo</span>
+          <a href={catalogo.linkCatalogo} target="_blank" rel="noopener">Sfoglia online →</a>
+        </div>
+      </div>
+      <div class="map-card reveal">
+        {contatti.immagine && <div class="map-photo"><img src={contatti.immagine} alt="Il laboratorio Ambrosia" loading="lazy" width="700" height="500" /></div>}
+        <div>
+          <div class="pin">{contatti.nomeLuogo}</div>
+          <p class="addr">{contatti.indirizzo}</p>
+        </div>
+        <a class="btn btn-ghost" href={contatti.linkMappa} target="_blank" rel="noopener">Apri in mappa →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">Ambrosia<small>Laboratorio · Canavese</small></div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Naviga</h5>
+          <a href="#chi-siamo">Chi siamo</a>
+          <a href="#cosa-facciamo">Cosa facciamo</a>
+          <a href="#catalogo">Catalogo</a>
+          <a href="#contatti">Contatti</a>
+        </div>
+        <div class="foot-col">
+          <h5>Contatti</h5>
+          <a href={`tel:${contatti.telefonoLink}`}>{contatti.telefono}</a>
+          <a href={`mailto:${contatti.email}`}>{contatti.email}</a>
+          <a href={contatti.linkMappa} target="_blank" rel="noopener">Mercenasco (TO)</a>
+        </div>
+        <div class="foot-col">
+          <h5>Catalogo</h5>
+          <a href={catalogo.linkCatalogo} target="_blank" rel="noopener">Catalogo online →</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>{footer.copyright}</span>
+      <span>{footer.claim}</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8));
+  const btn = document.getElementById('menuBtn'), menu = document.getElementById('navmenu');
+  btn.addEventListener('click', () => { const o = menu.classList.toggle('open'); btn.textContent = o ? '✕' : '☰'; });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); btn.textContent = '☰'; }));
+  const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

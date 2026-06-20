@@ -1,0 +1,20 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirect del dominio .com verso il .it (principale).
+# Attivare dopo aver collegato entrambi i domini in Netlify.
+[[redirects]]
+  from = "https://progettoambrosia.com/*"
+  to = "https://progettoambrosia.it/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.progettoambrosia.com/*"
+  to = "https://progettoambrosia.it/:splat"
+  status = 301
+  force = true
