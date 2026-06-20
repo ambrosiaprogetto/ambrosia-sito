@@ -1,0 +1,14 @@
+{
+  "attiva": false,
+  "eyebrow": "Partner",
+  "titolo": "Le aziende con cui lavoriamo.",
+  "sottotitolo": "Collaboriamo con realtà del territorio e produttori selezionati, per portare in laboratorio materie prime di cui ci fidiamo.",
+  "partner": [
+    {
+      "nome": "Nome azienda partner",
+      "logo": "",
+      "sito": "",
+      "descrizione": ""
+    }
+  ]
+}

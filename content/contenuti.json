@@ -93,7 +93,10 @@
     "nomeLuogo": "Ambrosia Laboratorio",
     "immagine": "/images/laboratorio.jpg",
     "indirizzo": "Via Cesare Battisti 20\nMercenasco (TO)",
-    "linkMappa": "https://www.google.com/maps/search/?api=1&query=Via+Cesare+Battisti+20+Mercenasco+TO"
+    "linkMappa": "https://www.google.com/maps/search/?api=1&query=Via+Cesare+Battisti+20+Mercenasco+TO",
+    "instagram": "https://www.instagram.com/ambrosia_laboratorio_/",
+    "facebook": "https://www.facebook.com/profile.php?id=61570456132709&locale=it_IT",
+    "whatsapp": "393476137994"
   },
   "footer": {
     "copyright": "© 2026 Ambrosia Laboratorio · Certificato AiC",

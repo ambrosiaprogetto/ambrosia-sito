@@ -1,14 +1,15 @@
 :root{
-  --crust:#7a3e1d;
-  --crust-soft:#a8632f;
-  --grain:#e9dcc3;
-  --paper:#faf6ee;
-  --paper-deep:#f3ebdc;
-  --sage:#6f7a5a;
-  --sage-deep:#515b40;
-  --ink:#2b2017;
-  --ink-soft:#6a5c4d;
-  --line:#dcccab;
+  /* Palette dai colori esatti del logo Ambrosia, su fondi caldi */
+  --crust:#430687;        /* viola/indaco del logo — accento primario */
+  --crust-soft:#ea412a;   /* arancione-rosso del logo — accento caldo */
+  --grain:#ecdcc6;        /* grano chiaro caldo */
+  --paper:#faf6ee;        /* fondo caldo */
+  --paper-deep:#f3ebdc;   /* fondo sezione alternata */
+  --sage:#5e3b9e;         /* viola medio — accento freddo secondario */
+  --sage-deep:#430687;    /* viola del logo */
+  --ink:#241a33;          /* testo, sottotono violaceo */
+  --ink-soft:#6a5f7a;     /* testo secondario */
+  --line:#ddd0b8;         /* linee sottili calde */
   --maxw:1120px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -25,8 +26,8 @@ img{max-width:100%;display:block}
 header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
 header.nav.scrolled{border-bottom-color:var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
-.brand{font-family:'Fraunces',serif;font-size:1.32rem;font-weight:600;letter-spacing:-.02em;text-decoration:none;display:flex;align-items:baseline;gap:.5ch}
-.brand small{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-deep)}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand img{height:42px;width:auto;display:block}
 nav ul{list-style:none;display:flex;gap:34px;align-items:center}
 nav a{text-decoration:none;font-size:.94rem;font-weight:500;color:var(--ink-soft);transition:color .2s;position:relative}
 nav a:hover{color:var(--crust)}
@@ -46,14 +47,16 @@ nav a:hover{color:var(--crust)}
 .btn-ghost{background:transparent;color:var(--crust);border:1px solid var(--line)}
 .btn-ghost:hover{border-color:var(--crust-soft);transform:translateY(-2px)}
 .thread{position:absolute;left:0;right:0;top:0;height:100%;pointer-events:none;z-index:1;opacity:.5}
+.thread-path{stroke:var(--crust-soft)}
 .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:46px}
 .tag{font-size:.8rem;font-weight:500;color:var(--sage-deep);border:1px solid var(--line);border-radius:999px;padding:.4em 1em;background:color-mix(in srgb,var(--sage) 8%,var(--paper))}
 
-section{padding:88px 0}
+section{padding:88px 0;position:relative}
+section + section::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 56px));height:1px;background:linear-gradient(90deg,transparent,var(--line) 18%,var(--line) 82%,transparent)}
 .section-head{max-width:60ch;margin-bottom:54px}
 .section-head h2{font-size:clamp(2rem,3.6vw,2.9rem);margin:.4em 0 .35em}
 .section-head p{color:var(--ink-soft);font-size:1.08rem}
-.alt{background:var(--paper-deep)}
+.alt{background:var(--paper)}
 
 .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
 .about-lead{font-family:'Fraunces',serif;font-size:clamp(1.4rem,2.4vw,1.85rem);font-weight:400;line-height:1.3;color:var(--ink)}
@@ -84,8 +87,8 @@ section{padding:88px 0}
 .catalog h2{color:var(--paper);font-size:clamp(1.9rem,3.2vw,2.7rem);margin:.45em 0 .5em}
 .catalog p{color:color-mix(in srgb,var(--grain) 88%,var(--paper));max-width:42ch}
 .catalog .live{display:inline-flex;align-items:center;gap:.55em;font-size:.86rem;font-weight:500;margin-top:22px;color:var(--grain)}
-.dot{width:8px;height:8px;border-radius:50%;background:#9ec27a;box-shadow:0 0 0 0 rgba(158,194,122,.7);animation:pulse 2.4s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(158,194,122,.6)}70%{box-shadow:0 0 0 10px rgba(158,194,122,0)}100%{box-shadow:0 0 0 0 rgba(158,194,122,0)}}
+.dot{width:8px;height:8px;border-radius:50%;background:#ff8a4c;box-shadow:0 0 0 0 rgba(255,138,76,.7);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,138,76,.6)}70%{box-shadow:0 0 0 10px rgba(255,138,76,0)}100%{box-shadow:0 0 0 0 rgba(255,138,76,0)}}
 @media (prefers-reduced-motion:reduce){.dot{animation:none}}
 .catalog .btn-cream{background:var(--paper);color:var(--crust);margin-top:30px}
 .catalog .btn-cream:hover{background:#fff;transform:translateY(-2px)}
@@ -121,6 +124,24 @@ footer{background:var(--ink);color:var(--grain);padding:64px 0 40px}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- SOCIAL ---------- */
+.socials{margin-top:8px}
+.social-row{display:flex;gap:14px;margin-top:4px}
+.social-ico{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--crust);transition:all .2s;text-decoration:none}
+.social-ico:hover{background:var(--crust);color:var(--paper);border-color:var(--crust);transform:translateY(-2px)}
+
+/* ---------- PAGINA PARTNER ---------- */
+.partner-page{padding-top:128px}
+.partner-draft{background:color-mix(in srgb,var(--crust-soft) 12%,var(--paper));border:1px solid var(--crust-soft);color:var(--crust);border-radius:12px;padding:14px 20px;font-size:.92rem;margin-bottom:40px}
+.partner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:28px}
+.partner-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:32px 24px;text-align:center;transition:transform .2s,box-shadow .2s}
+.partner-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(36,26,51,.4)}
+.partner-card img{max-width:140px;max-height:80px;width:auto;height:auto;margin:0 auto 18px;object-fit:contain}
+.partner-card .partner-name-big{display:flex;align-items:center;justify-content:center;height:80px;font-family:'Fraunces',serif;font-size:1.3rem;color:var(--crust);margin-bottom:18px}
+.partner-card h3{font-size:1.15rem;margin-bottom:6px}
+.partner-card p{color:var(--ink-soft);font-size:.92rem}
+.partner-link{text-decoration:none;display:block}
 
 /* ---------- IMMAGINI ---------- */
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}

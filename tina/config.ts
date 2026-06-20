@@ -155,6 +155,9 @@ export default defineConfig({
               { type: 'image', name: 'immagine', label: 'Foto del laboratorio' },
               { type: 'string', name: 'indirizzo', label: 'Indirizzo', ui: { component: 'textarea' } },
               { type: 'string', name: 'linkMappa', label: 'Link a Google Maps' },
+              { type: 'string', name: 'instagram', label: 'Link Instagram' },
+              { type: 'string', name: 'facebook', label: 'Link Facebook' },
+              { type: 'string', name: 'whatsapp', label: 'WhatsApp (solo numero, es. 393476137994)' },
             ],
           },
 
@@ -166,6 +169,41 @@ export default defineConfig({
             fields: [
               { type: 'string', name: 'copyright', label: 'Riga copyright' },
               { type: 'string', name: 'claim', label: 'Claim finale' },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'partner',
+        label: 'Pagina Partner',
+        path: 'content',
+        format: 'json',
+        match: { include: 'partner' },
+        ui: {
+          allowedActions: { create: false, delete: false },
+          router: () => '/partner',
+        },
+        fields: [
+          {
+            type: 'boolean',
+            name: 'attiva',
+            label: 'Pagina Partner attiva (visibile a tutti)',
+            description: 'Lascia spento finché la pagina non è pronta. Quando accendi, la voce "Partner" appare nel menu e la pagina diventa pubblica.',
+          },
+          { type: 'string', name: 'eyebrow', label: 'Sopra-titolo' },
+          { type: 'string', name: 'titolo', label: 'Titolo' },
+          { type: 'string', name: 'sottotitolo', label: 'Sottotitolo', ui: { component: 'textarea' } },
+          {
+            type: 'object',
+            name: 'partner',
+            label: 'Aziende partner',
+            list: true,
+            ui: { itemProps: (i) => ({ label: i?.nome }) },
+            fields: [
+              { type: 'string', name: 'nome', label: 'Nome azienda' },
+              { type: 'image', name: 'logo', label: 'Logo (opzionale)' },
+              { type: 'string', name: 'sito', label: 'Sito web (opzionale)' },
+              { type: 'string', name: 'descrizione', label: 'Breve descrizione (opzionale)' },
             ],
           },
         ],

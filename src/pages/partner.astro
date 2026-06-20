@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import contenuti from '../../content/contenuti.json';
+import partnerData from '../../content/partner.json';
+
+const { sito, catalogo, contatti, footer } = contenuti;
+const { attiva, eyebrow, titolo, sottotitolo, partner } = partnerData;
+---
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Partner — Ambrosia Laboratorio</title>
+<meta name="description" content="Le aziende e i produttori con cui collabora Ambrosia Laboratorio." />
+{!attiva && <meta name="robots" content="noindex,nofollow" />}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="brand"><img src="/images/logo-full.png" alt="Ambrosia Laboratorio" /></a>
+    <nav id="navmenu">
+      <ul>
+        <li><a href="/#chi-siamo">Chi siamo</a></li>
+        <li><a href="/#cosa-facciamo">Cosa facciamo</a></li>
+        <li><a href="/#catalogo">Catalogo</a></li>
+        <li><a href="/partner">Partner</a></li>
+        <li><a href="/#contatti">Contatti</a></li>
+        <li><a href={catalogo.linkCatalogo} target="_blank" rel="noopener" class="nav-cta">Catalogo online</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Apri il menu">☰</button>
+  </div>
+</header>
+
+<section class="partner-page">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2>{titolo}</h2>
+      <p>{sottotitolo}</p>
+    </div>
+
+    {!attiva && (
+      <div class="partner-draft">
+        Questa pagina non è ancora pubblica. Sarà visibile a tutti quando verrà attivata.
+      </div>
+    )}
+
+    <div class="partner-grid">
+      {partner.map((p) => (
+        <article class="partner-card">
+          {p.sito ? (
+            <a href={p.sito} target="_blank" rel="noopener" class="partner-link">
+              {p.logo ? <img src={p.logo} alt={p.nome} loading="lazy" /> : <span class="partner-name-big">{p.nome}</span>}
+            </a>
+          ) : (
+            p.logo ? <img src={p.logo} alt={p.nome} loading="lazy" /> : <span class="partner-name-big">{p.nome}</span>
+          )}
+          <h3>{p.nome}</h3>
+          {p.descrizione && <p>{p.descrizione}</p>}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">Ambrosia<small>Laboratorio · Canavese</small></div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Naviga</h5>
+          <a href="/#chi-siamo">Chi siamo</a>
+          <a href="/#cosa-facciamo">Cosa facciamo</a>
+          <a href="/#catalogo">Catalogo</a>
+          <a href="/#contatti">Contatti</a>
+        </div>
+        <div class="foot-col">
+          <h5>Contatti</h5>
+          <a href={`tel:${contatti.telefonoLink}`}>{contatti.telefono}</a>
+          <a href={`mailto:${contatti.email}`}>{contatti.email}</a>
+          <a href={contatti.linkMappa} target="_blank" rel="noopener">Mercenasco (TO)</a>
+        </div>
+        <div class="foot-col">
+          <h5>Catalogo</h5>
+          <a href={catalogo.linkCatalogo} target="_blank" rel="noopener">Catalogo online →</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>{footer.copyright}</span>
+      <span>{footer.claim}</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8));
+  const btn = document.getElementById('menuBtn'), menu = document.getElementById('navmenu');
+  btn.addEventListener('click', () => { const o = menu.classList.toggle('open'); btn.textContent = o ? '✕' : '☰'; });
+</script>
+</body>
+</html>
