@@ -8,19 +8,13 @@
     "titoloParte1": "Senza glutine",
     "titoloEnfasi": "per scelta",
     "titoloParte2": ", mai per rinuncia.",
-    "sottotitolo": "Il laboratorio artigianale dove la cucina tipica, la sperimentazione e la sicurezza convivono in un solo gusto, aperto a tutti.",
-    "immagine": "/uploads/images/hero-laboratorio.jpg",
+    "sottotitolo": "Un laboratorio artigianale dove la cucina tipica, la sperimentazione e la sicurezza convivono in un solo gusto, aperto a tutti.",
+    "immagine": "/images/hero-laboratorio.jpg",
     "immagineAlt": "Niccolò e Sara nel laboratorio Ambrosia",
     "tags": [
-      {
-        "testo": "Certificato AiC"
-      },
-      {
-        "testo": "Solo farine naturalmente senza glutine"
-      },
-      {
-        "testo": "Mercenasco (TO)"
-      }
+      { "testo": "Certificato AiC" },
+      { "testo": "Solo farine naturalmente senza glutine" },
+      { "testo": "Mercenasco (TO)" }
     ]
   },
   "chiSiamo": {
@@ -28,12 +22,8 @@
     "titolo": "Un sogno diventato progetto, e poi realtà.",
     "introForte": "Ciao, sono Niccolò Bernabè. Ambrosia nasce dopo vent'anni nella ristorazione, per fondere la buona cucina, le tecniche apprese e le esigenze del territorio del Canavese.",
     "paragrafi": [
-      {
-        "testo": "Ogni giorno realizziamo prodotti da forno, preparazioni gastronomiche, conserve, buffet ed eventi, unendo lavorazioni artigianali, attenzione alla materia prima e cura dei dettagli."
-      },
-      {
-        "testo": "Crediamo che il senza glutine non debba essere una rinuncia, ma un modo diverso di vivere il gusto: sviluppiamo prodotti pensati per essere apprezzati da tutti, mantenendo sempre standard elevati di qualità e sicurezza. Dalla piccola produzione quotidiana fino alla trasformazione delle materie prime conferite da aziende agricole e produttori locali, l'obiettivo è valorizzare ogni ingrediente."
-      }
+      { "testo": "Ogni giorno realizziamo prodotti da forno, preparazioni gastronomiche, conserve, buffet ed eventi, unendo lavorazioni artigianali, attenzione alla materia prima e cura dei dettagli." },
+      { "testo": "Crediamo che il senza glutine non debba essere una rinuncia, ma un modo diverso di vivere il gusto: sviluppiamo prodotti pensati per essere apprezzati da tutti, mantenendo sempre standard elevati di qualità e sicurezza. Dalla piccola produzione quotidiana fino alla trasformazione delle materie prime conferite da aziende agricole e produttori locali, l'obiettivo è valorizzare ogni ingrediente." }
     ],
     "certificazione": "Laboratorio certificato AiC. Lavoriamo solo farine naturalmente senza glutine: nessuna contaminazione, per definizione.",
     "citazione": "È stata una scelta, non un obbligo.",
@@ -48,83 +38,36 @@
         "etichetta": "01 · Su misura",
         "titolo": "Eventi & banqueting",
         "descrizione": "Pranzi e cene a casa o in azienda, da noi o da ritirare in laboratorio. Menù personalizzati e creati ad hoc per l'occasione.",
-        "immagine": "/uploads/images/eventi.jpg",
-        "tags": [
-          {
-            "testo": "Banqueting"
-          },
-          {
-            "testo": "Buffet"
-          },
-          {
-            "testo": "Catering"
-          }
-        ]
+        "immagine": "/images/eventi.jpg",
+        "tags": [{ "testo": "Banqueting" }, { "testo": "Buffet" }, { "testo": "Catering" }]
       },
       {
         "etichetta": "02 · Su richiesta",
         "titolo": "Torte personalizzate",
         "descrizione": "Naturalmente senza glutine e, su richiesta, anche senza lattosio. Pensate intorno alla tua occasione.",
-        "immagine": "/uploads/images/torte.jpg",
-        "tags": [
-          {
-            "testo": "Senza glutine"
-          },
-          {
-            "testo": "Senza lattosio"
-          }
-        ]
+        "immagine": "/images/torte.jpg",
+        "tags": [{ "testo": "Senza glutine" }, { "testo": "Senza lattosio" }]
       },
       {
         "etichetta": "03 · Ogni giorno",
         "titolo": "Panificati freschi",
         "descrizione": "Pane, focaccia e base pizza 33\". I nostri panificati sono abbattuti all'origine e mantenuti a −20°, per arrivare fragranti.",
-        "immagine": "/uploads/images/panificati.jpg",
-        "tags": [
-          {
-            "testo": "Pane"
-          },
-          {
-            "testo": "Focaccia"
-          },
-          {
-            "testo": "Base pizza 33\""
-          }
-        ]
+        "immagine": "/images/panificati.jpg",
+        "tags": [{ "testo": "Pane" }, { "testo": "Focaccia" }, { "testo": "Base pizza 33\"" }]
       },
       {
         "etichetta": "04 · La dispensa",
         "titolo": "Forno secco & snack",
         "descrizione": "Produzione artigianale di prodotti da forno secchi senza lattosio: un prodotto di qualità, adatto a tutti.",
-        "immagine": "/uploads/images/forno-secco.jpg",
-        "tags": [
-          {
-            "testo": "Biscotti"
-          },
-          {
-            "testo": "Grissini di riso"
-          },
-          {
-            "testo": "Snack salati"
-          }
-        ]
+        "immagine": "/images/forno-secco.jpg",
+        "tags": [{ "testo": "Biscotti" }, { "testo": "Grissini di riso" }, { "testo": "Snack salati" }]
       },
       {
         "etichetta": "05 · La trasformazione",
         "titolo": "Conserve dolci e salate",
         "descrizione": "Composte che fanno risaltare il gusto: prodotti territoriali e non trattati, lavorati in modo semplice ma sicuro, con la minor quantità di zucchero possibile. Produciamo anche in conto lavorazione per aziende agricole e non solo.",
-        "immagine": "/uploads/images/conserve.jpg",
-        "tags": [
-          {
-            "testo": "Composte"
-          },
-          {
-            "testo": "Conserve salate"
-          },
-          {
-            "testo": "Conto lavorazione"
-          }
-        ]
+        "immagine": "/images/conserve.jpg",
+        "tags": [{ "testo": "Composte" }, { "testo": "Conserve salate" }, { "testo": "Conto lavorazione" }]
       }
     ]
   },
@@ -135,9 +78,9 @@
     "noteLive": "Aggiornato in tempo reale dal laboratorio",
     "testoBottone": "Apri il catalogo →",
     "linkCatalogo": "https://gest.cooki.it/public/Ambrosia",
-    "anteprimaImmagineLabel": "Focaccia del giorno",
-    "anteprimaImmagine": "/uploads/images/panificati.jpg",
     "anteprimaNome": "Focaccia classica",
+    "anteprimaImmagineLabel": "Focaccia del giorno",
+    "anteprimaImmagine": "/images/panificati.jpg",
     "anteprimaPrezzo": "€ 4,50 · alla teglia"
   },
   "contatti": {
@@ -148,7 +91,7 @@
     "telefonoLink": "+3901251892565",
     "email": "info@progettoambrosia.it",
     "nomeLuogo": "Ambrosia Laboratorio",
-    "immagine": "/uploads/images/laboratorio.jpg",
+    "immagine": "/images/laboratorio.jpg",
     "indirizzo": "Via Cesare Battisti 20\nMercenasco (TO)",
     "linkMappa": "https://www.google.com/maps/search/?api=1&query=Via+Cesare+Battisti+20+Mercenasco+TO",
     "instagram": "https://www.instagram.com/ambrosia_laboratorio_/",
