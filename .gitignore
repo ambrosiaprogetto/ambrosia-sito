@@ -1,0 +1,8 @@
+   node_modules/
+   dist/
+   .astro/
+   public/admin/
+   .env
+   .env.*
+   .DS_Store
+   tina-lock.json
