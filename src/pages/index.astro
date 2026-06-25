@@ -3,18 +3,21 @@ import '../styles/global.css';
 import contenuti from '../../content/contenuti.json';
 import partnerData from '../../content/partner.json';
 
-const { sito, hero, chiSiamo, cosaFacciamo, catalogo, contatti, footer } = contenuti;
+const { sito, hero, chiSiamo, cosaFacciamo, catalogo, contatti, menu, footer } = contenuti;
 const mostraPartner = partnerData.attiva;
+
+// Helper: rende un testo bilingue come due span (IT visibile di default, EN nascosto)
+// Lo script in fondo scambia la visibilità al cambio lingua.
 ---
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{sito.titoloPagina}</title>
-<meta name="description" content={sito.descrizione} />
+<title set:html={sito.titoloPagina.it} data-it={sito.titoloPagina.it} data-en={sito.titoloPagina.en}></title>
+<meta name="description" content={sito.descrizione.it} />
 <meta property="og:title" content="Ambrosia Laboratorio" />
-<meta property="og:description" content={sito.descrizione} />
+<meta property="og:description" content={sito.descrizione.it} />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,15 +30,19 @@ const mostraPartner = partnerData.attiva;
     <a href="#top" class="brand"><img src="/images/logo-full.png" alt="Ambrosia Laboratorio" /></a>
     <nav id="navmenu">
       <ul>
-        <li><a href="#chi-siamo">Chi siamo</a></li>
-        <li><a href="#cosa-facciamo">Cosa facciamo</a></li>
-        <li><a href="#catalogo">Catalogo</a></li>
-        {mostraPartner && <li><a href="/partner">Partner</a></li>}
-        <li><a href="#contatti">Contatti</a></li>
-        <li><a href={catalogo.linkCatalogo} target="_blank" rel="noopener" class="nav-cta">Catalogo online</a></li>
+        <li><a href="#chi-siamo"><span data-it={menu.chiSiamo.it} data-en={menu.chiSiamo.en}>{menu.chiSiamo.it}</span></a></li>
+        <li><a href="#cosa-facciamo"><span data-it={menu.cosaFacciamo.it} data-en={menu.cosaFacciamo.en}>{menu.cosaFacciamo.it}</span></a></li>
+        <li><a href="#catalogo"><span data-it={menu.catalogo.it} data-en={menu.catalogo.en}>{menu.catalogo.it}</span></a></li>
+        {mostraPartner && <li><a href="/partner"><span data-it={menu.partner.it} data-en={menu.partner.en}>{menu.partner.it}</span></a></li>}
+        <li><a href="#contatti"><span data-it={menu.contatti.it} data-en={menu.contatti.en}>{menu.contatti.it}</span></a></li>
+        <li><a href={catalogo.linkCatalogo} target="_blank" rel="noopener" class="nav-cta"><span data-it={menu.catalogoOnline.it} data-en={menu.catalogoOnline.en}>{menu.catalogoOnline.it}</span></a></li>
+        <li class="lang-li"><button class="lang-btn" id="langBtn" aria-label="Switch language" type="button"><span class="flag" id="flag">🇬🇧</span><span class="lang-code" id="langCode">EN</span></button></li>
       </ul>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Apri il menu">☰</button>
+    <div class="nav-mobile-right">
+      <button class="lang-btn lang-btn-mobile" id="langBtnMobile" aria-label="Switch language" type="button"><span class="flag" id="flagMobile">🇬🇧</span></button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
   </div>
 </header>
 
@@ -46,20 +53,20 @@ const mostraPartner = partnerData.attiva;
   </svg>
   <div class="wrap hero-grid">
     <div class="hero-text">
-      <span class="eyebrow">{hero.eyebrow}</span>
-      <h1>{hero.titoloParte1} <em>{hero.titoloEnfasi}</em>{hero.titoloParte2}</h1>
-      <p class="lede">{hero.sottotitolo}</p>
+      <span class="eyebrow"><span data-it={hero.eyebrow.it} data-en={hero.eyebrow.en}>{hero.eyebrow.it}</span></span>
+      <h1><span data-it={hero.titoloParte1.it} data-en={hero.titoloParte1.en}>{hero.titoloParte1.it}</span> <em><span data-it={hero.titoloEnfasi.it} data-en={hero.titoloEnfasi.en}>{hero.titoloEnfasi.it}</span></em><span data-it={hero.titoloParte2.it} data-en={hero.titoloParte2.en}>{hero.titoloParte2.it}</span></h1>
+      <p class="lede"><span data-it={hero.sottotitolo.it} data-en={hero.sottotitolo.en}>{hero.sottotitolo.it}</span></p>
       <div class="hero-actions">
-        <a href="#catalogo" class="btn btn-primary">Scopri i prodotti</a>
-        <a href="#chi-siamo" class="btn btn-ghost">La nostra storia</a>
+        <a href="#catalogo" class="btn btn-primary"><span data-it={menu.scopriProdotti.it} data-en={menu.scopriProdotti.en}>{menu.scopriProdotti.it}</span></a>
+        <a href="#chi-siamo" class="btn btn-ghost"><span data-it={menu.nostraStoria.it} data-en={menu.nostraStoria.en}>{menu.nostraStoria.it}</span></a>
       </div>
       <div class="hero-tags">
-        {hero.tags.map((t) => <span class="tag">{t.testo}</span>)}
+        {hero.tags.map((t) => <span class="tag"><span data-it={t.it} data-en={t.en}>{t.it}</span></span>)}
       </div>
     </div>
     {hero.immagine && (
       <div class="hero-photo reveal">
-        <img src={hero.immagine} alt={hero.immagineAlt || 'Ambrosia Laboratorio'} width="900" height="600" />
+        <img src={hero.immagine} alt={hero.immagineAlt.it} width="900" height="600" />
       </div>
     )}
   </div>
@@ -68,21 +75,21 @@ const mostraPartner = partnerData.attiva;
 <section id="chi-siamo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">{chiSiamo.eyebrow}</span>
-      <h2 set:html={chiSiamo.titolo.replace(', e', ',<br>e')} />
+      <span class="eyebrow"><span data-it={chiSiamo.eyebrow.it} data-en={chiSiamo.eyebrow.en}>{chiSiamo.eyebrow.it}</span></span>
+      <h2><span data-it={chiSiamo.titolo.it} data-en={chiSiamo.titolo.en}>{chiSiamo.titolo.it}</span></h2>
     </div>
     <div class="about-grid">
       <div class="about-body reveal">
-        <p class="about-lead">{chiSiamo.introForte}</p>
-        {chiSiamo.paragrafi.map((p) => <p>{p.testo}</p>)}
+        <p class="about-lead"><span data-it={chiSiamo.introForte.it} data-en={chiSiamo.introForte.en}>{chiSiamo.introForte.it}</span></p>
+        {chiSiamo.paragrafi.map((p) => <p><span data-it={p.it} data-en={p.en}>{p.it}</span></p>)}
         <div class="cert">
           <img class="cert-logo" src="/images/logo-aic.png" alt="Associazione Italiana Celiachia — Alimentazione Fuori Casa" width="120" height="146" />
-          <span>{chiSiamo.certificazione}</span>
+          <span><span data-it={chiSiamo.certificazione.it} data-en={chiSiamo.certificazione.en}>{chiSiamo.certificazione.it}</span></span>
         </div>
       </div>
       <aside class="about-side reveal">
-        <p class="quote">«{chiSiamo.citazione}»</p>
-        <p class="who">{chiSiamo.noteCitazione}</p>
+        <p class="quote">«<span data-it={chiSiamo.citazione.it} data-en={chiSiamo.citazione.en}>{chiSiamo.citazione.it}</span>»</p>
+        <p class="who"><span data-it={chiSiamo.noteCitazione.it} data-en={chiSiamo.noteCitazione.en}>{chiSiamo.noteCitazione.it}</span></p>
       </aside>
     </div>
   </div>
@@ -91,18 +98,18 @@ const mostraPartner = partnerData.attiva;
 <section id="cosa-facciamo" class="alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">{cosaFacciamo.eyebrow}</span>
-      <h2>{cosaFacciamo.titolo}</h2>
-      <p>{cosaFacciamo.sottotitolo}</p>
+      <span class="eyebrow"><span data-it={cosaFacciamo.eyebrow.it} data-en={cosaFacciamo.eyebrow.en}>{cosaFacciamo.eyebrow.it}</span></span>
+      <h2><span data-it={cosaFacciamo.titolo.it} data-en={cosaFacciamo.titolo.en}>{cosaFacciamo.titolo.it}</span></h2>
+      <p><span data-it={cosaFacciamo.sottotitolo.it} data-en={cosaFacciamo.sottotitolo.en}>{cosaFacciamo.sottotitolo.it}</span></p>
     </div>
     <div class="offer">
       {cosaFacciamo.servizi.map((s, i) => (
         <article class="card reveal" style={i === cosaFacciamo.servizi.length - 1 && cosaFacciamo.servizi.length % 2 === 1 ? 'grid-column:1/-1' : ''}>
-          {s.immagine && <div class="card-photo"><img src={s.immagine} alt={s.titolo} loading="lazy" width="600" height="400" /></div>}
-          <span class="num">{s.etichetta}</span>
-          <h3>{s.titolo}</h3>
-          <p>{s.descrizione}</p>
-          <ul>{s.tags.map((t) => <li>{t.testo}</li>)}</ul>
+          {s.immagine && <div class="card-photo"><img src={s.immagine} alt={s.titolo.it} loading="lazy" width="600" height="400" /></div>}
+          <span class="num"><span data-it={s.etichetta.it} data-en={s.etichetta.en}>{s.etichetta.it}</span></span>
+          <h3><span data-it={s.titolo.it} data-en={s.titolo.en}>{s.titolo.it}</span></h3>
+          <p><span data-it={s.descrizione.it} data-en={s.descrizione.en}>{s.descrizione.it}</span></p>
+          <ul>{s.tags.map((t) => <li><span data-it={t.it} data-en={t.en}>{t.it}</span></li>)}</ul>
         </article>
       ))}
     </div>
@@ -113,19 +120,19 @@ const mostraPartner = partnerData.attiva;
   <div class="wrap">
     <div class="catalog reveal">
       <div class="ct-text">
-        <span class="eyebrow">{catalogo.eyebrow}</span>
-        <h2>{catalogo.titolo}</h2>
-        <p>{catalogo.descrizione}</p>
-        <span class="live"><span class="dot"></span> {catalogo.noteLive}</span>
+        <span class="eyebrow"><span data-it={catalogo.eyebrow.it} data-en={catalogo.eyebrow.en}>{catalogo.eyebrow.it}</span></span>
+        <h2><span data-it={catalogo.titolo.it} data-en={catalogo.titolo.en}>{catalogo.titolo.it}</span></h2>
+        <p><span data-it={catalogo.descrizione.it} data-en={catalogo.descrizione.en}>{catalogo.descrizione.it}</span></p>
+        <span class="live"><span class="dot"></span> <span data-it={catalogo.noteLive.it} data-en={catalogo.noteLive.en}>{catalogo.noteLive.it}</span></span>
         <br />
-        <a href={catalogo.linkCatalogo} target="_blank" rel="noopener" class="btn btn-cream">{catalogo.testoBottone}</a>
+        <a href={catalogo.linkCatalogo} target="_blank" rel="noopener" class="btn btn-cream"><span data-it={catalogo.testoBottone.it} data-en={catalogo.testoBottone.en}>{catalogo.testoBottone.it}</span></a>
       </div>
       <div class="ct-card" aria-hidden="true">
-        <div class="ct-img" style={catalogo.anteprimaImmagine ? `background-image:url(${catalogo.anteprimaImmagine})` : ''}>{!catalogo.anteprimaImmagine && catalogo.anteprimaImmagineLabel}</div>
-        <h4>{catalogo.anteprimaNome}</h4>
-        <div class="price">{catalogo.anteprimaPrezzo}</div>
-        <div class="aller"><span>Senza glutine</span><span>Lievito</span></div>
-        <div class="nofree"><b>✓</b> Valori nutrizionali e ingredienti completi nel portale</div>
+        <div class="ct-img" style={catalogo.anteprimaImmagine ? `background-image:url(${catalogo.anteprimaImmagine})` : ''}>{!catalogo.anteprimaImmagine && catalogo.anteprimaImmagineLabel.it}</div>
+        <h4><span data-it={catalogo.anteprimaNome.it} data-en={catalogo.anteprimaNome.en}>{catalogo.anteprimaNome.it}</span></h4>
+        <div class="price"><span data-it={catalogo.anteprimaPrezzo.it} data-en={catalogo.anteprimaPrezzo.en}>{catalogo.anteprimaPrezzo.it}</span></div>
+        <div class="aller"><span><span data-it="Senza glutine" data-en="Gluten-free">Senza glutine</span></span><span><span data-it="Lievito" data-en="Yeast">Lievito</span></span></div>
+        <div class="nofree"><b>✓</b> <span data-it="Valori nutrizionali e ingredienti completi nel portale" data-en="Full nutritional values and ingredients in the portal">Valori nutrizionali e ingredienti completi nel portale</span></div>
       </div>
     </div>
   </div>
@@ -134,27 +141,27 @@ const mostraPartner = partnerData.attiva;
 <section id="contatti" class="alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">{contatti.eyebrow}</span>
-      <h2>{contatti.titolo}</h2>
-      <p>{contatti.sottotitolo}</p>
+      <span class="eyebrow"><span data-it={contatti.eyebrow.it} data-en={contatti.eyebrow.en}>{contatti.eyebrow.it}</span></span>
+      <h2><span data-it={contatti.titolo.it} data-en={contatti.titolo.en}>{contatti.titolo.it}</span></h2>
+      <p><span data-it={contatti.sottotitolo.it} data-en={contatti.sottotitolo.en}>{contatti.sottotitolo.it}</span></p>
     </div>
     <div class="contact-grid">
       <div class="reveal">
         <div class="ci">
-          <span class="lbl">Telefono</span>
+          <span class="lbl"><span data-it={contatti.labelTelefono.it} data-en={contatti.labelTelefono.en}>{contatti.labelTelefono.it}</span></span>
           <a href={`tel:${contatti.telefonoLink}`}>{contatti.telefono}</a>
         </div>
         <div class="ci">
-          <span class="lbl">Email</span>
+          <span class="lbl"><span data-it={contatti.labelEmail.it} data-en={contatti.labelEmail.en}>{contatti.labelEmail.it}</span></span>
           <a href={`mailto:${contatti.email}`}>{contatti.email}</a>
         </div>
         <div class="ci">
-          <span class="lbl">Catalogo</span>
-          <a href={catalogo.linkCatalogo} target="_blank" rel="noopener">Sfoglia online →</a>
+          <span class="lbl"><span data-it={contatti.labelCatalogo.it} data-en={contatti.labelCatalogo.en}>{contatti.labelCatalogo.it}</span></span>
+          <a href={catalogo.linkCatalogo} target="_blank" rel="noopener"><span data-it={contatti.sfogliaOnline.it} data-en={contatti.sfogliaOnline.en}>{contatti.sfogliaOnline.it}</span></a>
         </div>
         {(contatti.instagram || contatti.facebook || contatti.whatsapp) && (
           <div class="ci socials">
-            <span class="lbl">Seguici</span>
+            <span class="lbl"><span data-it={contatti.labelSeguici.it} data-en={contatti.labelSeguici.en}>{contatti.labelSeguici.it}</span></span>
             <div class="social-row">
               {contatti.instagram && (
                 <a href={contatti.instagram} target="_blank" rel="noopener" aria-label="Instagram" class="social-ico">
@@ -176,12 +183,12 @@ const mostraPartner = partnerData.attiva;
         )}
       </div>
       <div class="map-card reveal">
-        {contatti.immagine && <div class="map-photo"><img src={contatti.immagine} alt="Il laboratorio Ambrosia" loading="lazy" width="700" height="500" /></div>}
+        {contatti.immagine && <div class="map-photo"><img src={contatti.immagine} alt="Ambrosia Laboratorio" loading="lazy" width="700" height="500" /></div>}
         <div>
           <div class="pin">{contatti.nomeLuogo}</div>
           <p class="addr">{contatti.indirizzo}</p>
         </div>
-        <a class="btn btn-ghost" href={contatti.linkMappa} target="_blank" rel="noopener">Apri in mappa →</a>
+        <a class="btn btn-ghost" href={contatti.linkMappa} target="_blank" rel="noopener"><span data-it={contatti.apriMappa.it} data-en={contatti.apriMappa.en}>{contatti.apriMappa.it}</span></a>
       </div>
     </div>
   </div>
@@ -193,25 +200,25 @@ const mostraPartner = partnerData.attiva;
       <div class="foot-brand">Ambrosia<small>Laboratorio · Canavese</small></div>
       <div class="foot-links">
         <div class="foot-col">
-          <h5>Naviga</h5>
-          <a href="#chi-siamo">Chi siamo</a>
-          <a href="#cosa-facciamo">Cosa facciamo</a>
-          <a href="#catalogo">Catalogo</a>
-          <a href="#contatti">Contatti</a>
+          <h5><span data-it={footer.naviga.it} data-en={footer.naviga.en}>{footer.naviga.it}</span></h5>
+          <a href="#chi-siamo"><span data-it={menu.chiSiamo.it} data-en={menu.chiSiamo.en}>{menu.chiSiamo.it}</span></a>
+          <a href="#cosa-facciamo"><span data-it={menu.cosaFacciamo.it} data-en={menu.cosaFacciamo.en}>{menu.cosaFacciamo.it}</span></a>
+          <a href="#catalogo"><span data-it={menu.catalogo.it} data-en={menu.catalogo.en}>{menu.catalogo.it}</span></a>
+          <a href="#contatti"><span data-it={menu.contatti.it} data-en={menu.contatti.en}>{menu.contatti.it}</span></a>
         </div>
         <div class="foot-col">
-          <h5>Contatti</h5>
+          <h5><span data-it={contatti.eyebrow.it} data-en={contatti.eyebrow.en}>{contatti.eyebrow.it}</span></h5>
           <a href={`tel:${contatti.telefonoLink}`}>{contatti.telefono}</a>
           <a href={`mailto:${contatti.email}`}>{contatti.email}</a>
           <a href={contatti.linkMappa} target="_blank" rel="noopener">Mercenasco (TO)</a>
         </div>
         <div class="foot-col">
-          <h5>Catalogo</h5>
-          <a href={catalogo.linkCatalogo} target="_blank" rel="noopener">Catalogo online →</a>
+          <h5><span data-it={menu.catalogo.it} data-en={menu.catalogo.en}>{menu.catalogo.it}</span></h5>
+          <a href={catalogo.linkCatalogo} target="_blank" rel="noopener"><span data-it={menu.catalogoOnline.it} data-en={menu.catalogoOnline.en}>{menu.catalogoOnline.it}</span></a>
         </div>
         {(contatti.instagram || contatti.facebook || contatti.whatsapp) && (
           <div class="foot-col">
-            <h5>Seguici</h5>
+            <h5><span data-it={contatti.labelSeguici.it} data-en={contatti.labelSeguici.en}>{contatti.labelSeguici.it}</span></h5>
             {contatti.instagram && <a href={contatti.instagram} target="_blank" rel="noopener">Instagram</a>}
             {contatti.facebook && <a href={contatti.facebook} target="_blank" rel="noopener">Facebook</a>}
             {contatti.whatsapp && <a href={`https://wa.me/${contatti.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a>}
@@ -220,8 +227,8 @@ const mostraPartner = partnerData.attiva;
       </div>
     </div>
     <div class="foot-bottom">
-      <span>{footer.copyright}</span>
-      <span>{footer.claim}</span>
+      <span><span data-it={footer.copyright.it} data-en={footer.copyright.en}>{footer.copyright.it}</span></span>
+      <span><span data-it={footer.claim.it} data-en={footer.claim.en}>{footer.claim.it}</span></span>
     </div>
   </div>
 </footer>
@@ -234,6 +241,36 @@ const mostraPartner = partnerData.attiva;
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); btn.textContent = '☰'; }));
   const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ---- Cambio lingua ----
+  function applyLang(lang){
+    document.querySelectorAll('[data-it][data-en]').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (val !== null) {
+        if (el.tagName === 'TITLE') document.title = val;
+        else el.textContent = val;
+      }
+    });
+    document.documentElement.lang = lang;
+    // aggiorna i bottoni bandiera: mostrano la lingua verso cui si passa
+    const next = lang === 'it' ? 'en' : 'it';
+    const flag = next === 'en' ? '🇬🇧' : '🇮🇹';
+    const code = next.toUpperCase();
+    const f = document.getElementById('flag'); if (f) f.textContent = flag;
+    const c = document.getElementById('langCode'); if (c) c.textContent = code;
+    const fm = document.getElementById('flagMobile'); if (fm) fm.textContent = flag;
+    try { localStorage.setItem('ambrosia_lang', lang); } catch(e){}
+  }
+  function toggleLang(){
+    const current = document.documentElement.lang === 'en' ? 'en' : 'it';
+    applyLang(current === 'it' ? 'en' : 'it');
+  }
+  document.getElementById('langBtn').addEventListener('click', toggleLang);
+  document.getElementById('langBtnMobile').addEventListener('click', toggleLang);
+  // lingua iniziale: preferenza salvata, altrimenti italiano
+  let saved = 'it';
+  try { saved = localStorage.getItem('ambrosia_lang') || 'it'; } catch(e){}
+  applyLang(saved);
 </script>
 </body>
 </html>
