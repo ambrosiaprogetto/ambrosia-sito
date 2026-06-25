@@ -79,8 +79,8 @@ section + section::before{content:"";position:absolute;top:0;left:50%;transform:
 .offer{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
 .card{background:var(--paper);padding:38px 34px;transition:background .25s}
 .alt .card{background:var(--paper-deep)}
-.card:hover{background:color-mix(in srgb,var(--crust-soft) 6%,var(--paper))}
-.alt .card:hover{background:color-mix(in srgb,var(--crust-soft) 7%,var(--paper-deep))}
+.card:hover{background:#f9c284}
+.alt .card:hover{background:#f9c284}
 .card .num{font-family:'Inter',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.16em;color:var(--sage-deep)}
 .card h3{font-size:1.5rem;margin:.5em 0 .5em}
 .card p{color:var(--ink-soft);font-size:.99rem}
