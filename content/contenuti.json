@@ -275,8 +275,8 @@
     },
     "anteprimaImmagine": "/images/panificati.jpg",
     "anteprimaPrezzo": {
-      "it": "€ 4,50 · alla teglia",
-      "en": "€ 4.50 · per tray"
+      "it": "€€€ · alla teglia",
+      "en": "€€€ · per tray"
     }
   },
   "contatti": {
