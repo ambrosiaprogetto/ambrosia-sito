@@ -14,9 +14,18 @@
       "it": "Laboratorio gastronomico · Canavese",
       "en": "Gastronomic lab · Canavese, Italy"
     },
-    "titoloParte1": { "it": "Senza glutine", "en": "Gluten-free" },
-    "titoloEnfasi": { "it": "per scelta", "en": "by choice" },
-    "titoloParte2": { "it": ", mai per rinuncia.", "en": ", never by sacrifice." },
+    "titoloParte1": {
+      "it": "Senza glutine",
+      "en": "Gluten-free"
+    },
+    "titoloEnfasi": {
+      "it": "per scelta",
+      "en": "by choice"
+    },
+    "titoloParte2": {
+      "it": ", mai per rinuncia.",
+      "en": ", never by sacrifice."
+    },
     "sottotitolo": {
       "it": "Un laboratorio artigianale dove la cucina tipica, la sperimentazione e la sicurezza convivono in un solo gusto, aperto a tutti.",
       "en": "An artisan lab where traditional cooking, experimentation and safety come together in a single taste, open to everyone."
@@ -27,20 +36,32 @@
       "en": "Niccolò and Sara in the Ambrosia lab"
     },
     "tags": [
-      { "it": "Certificato AiC", "en": "AiC certified" },
-      { "it": "Solo farine naturalmente senza glutine", "en": "Only naturally gluten-free flours" },
-      { "it": "Mercenasco (TO)", "en": "Mercenasco, Italy" }
+      {
+        "it": "Certificato AiC",
+        "en": "AiC certified"
+      },
+      {
+        "it": "Solo farine naturalmente senza glutine",
+        "en": "Only naturally gluten-free flours"
+      },
+      {
+        "it": "Mercenasco (TO)",
+        "en": "Mercenasco, Italy"
+      }
     ]
   },
   "chiSiamo": {
-    "eyebrow": { "it": "Chi siamo", "en": "About us" },
+    "eyebrow": {
+      "it": "Chi siamo",
+      "en": "About us"
+    },
     "titolo": {
       "it": "Un sogno diventato progetto, e poi realtà.",
       "en": "A dream that became a project, and then reality."
     },
     "introForte": {
       "it": "Ciao, sono Niccolò Bernabè. Ambrosia nasce dopo vent'anni nella ristorazione, per fondere la buona cucina, le tecniche apprese e le esigenze del territorio del Canavese.",
-      "en": "Hi, I'm Niccolò Bernabè. Ambrosia was born after twenty years in the restaurant world, blending good cooking, the techniques I learned and the needs of the Canavese region."
+      "en": "Hello, I'm Niccolò Bernabè. Ambrosia was born after twenty years in the restaurant world, blending good cooking, the techniques I learned and the needs of the Canavese region."
     },
     "paragrafi": [
       {
@@ -66,7 +87,10 @@
     }
   },
   "cosaFacciamo": {
-    "eyebrow": { "it": "Cosa facciamo", "en": "What we do" },
+    "eyebrow": {
+      "it": "Cosa facciamo",
+      "en": "What we do"
+    },
     "titolo": {
       "it": "Dal forno quotidiano al grande evento.",
       "en": "From the daily oven to the big event."
@@ -77,78 +101,153 @@
     },
     "servizi": [
       {
-        "etichetta": { "it": "01 · Su misura", "en": "01 · Tailor-made" },
-        "titolo": { "it": "Eventi & banqueting", "en": "Events & banqueting" },
+        "etichetta": {
+          "it": "01 · Su misura",
+          "en": "01 · Tailor-made"
+        },
+        "titolo": {
+          "it": "Eventi & banqueting",
+          "en": "Events & banqueting"
+        },
         "descrizione": {
           "it": "Pranzi e cene a casa o in azienda, da noi o da ritirare in laboratorio. Menù personalizzati e creati ad hoc per l'occasione.",
           "en": "Lunches and dinners at home or at your company, here with us or ready to collect at the lab. Custom menus created for the occasion."
         },
         "immagine": "/images/eventi.jpg",
         "tags": [
-          { "it": "Banqueting", "en": "Banqueting" },
-          { "it": "Buffet", "en": "Buffet" },
-          { "it": "Catering", "en": "Catering" }
+          {
+            "it": "Banqueting",
+            "en": "Banqueting"
+          },
+          {
+            "it": "Buffet",
+            "en": "Buffet"
+          },
+          {
+            "it": "Catering",
+            "en": "Catering"
+          }
         ]
       },
       {
-        "etichetta": { "it": "02 · Su richiesta", "en": "02 · On request" },
-        "titolo": { "it": "Torte personalizzate", "en": "Custom cakes" },
+        "etichetta": {
+          "it": "02 · Su richiesta",
+          "en": "02 · On request"
+        },
+        "titolo": {
+          "it": "Torte personalizzate",
+          "en": "Custom cakes"
+        },
         "descrizione": {
           "it": "Naturalmente senza glutine e, su richiesta, anche senza lattosio. Pensate intorno alla tua occasione.",
           "en": "Naturally gluten-free and, on request, lactose-free too. Designed around your occasion."
         },
         "immagine": "/images/torte.jpg",
         "tags": [
-          { "it": "Senza glutine", "en": "Gluten-free" },
-          { "it": "Senza lattosio", "en": "Lactose-free" }
+          {
+            "it": "Senza glutine",
+            "en": "Gluten-free"
+          },
+          {
+            "it": "Senza lattosio",
+            "en": "Lactose-free"
+          }
         ]
       },
       {
-        "etichetta": { "it": "03 · Ogni giorno", "en": "03 · Every day" },
-        "titolo": { "it": "Panificati freschi", "en": "Fresh baked goods" },
+        "etichetta": {
+          "it": "03 · Ogni giorno",
+          "en": "03 · Every day"
+        },
+        "titolo": {
+          "it": "Panificati freschi",
+          "en": "Fresh baked goods"
+        },
         "descrizione": {
           "it": "Pane, focaccia e base pizza 33\". I nostri panificati sono abbattuti all'origine e mantenuti a −20°, per arrivare fragranti.",
           "en": "Bread, focaccia and 33\" pizza bases. Our baked goods are blast-chilled at the source and kept at −20° to arrive fragrant."
         },
         "immagine": "/images/panificati.jpg",
         "tags": [
-          { "it": "Pane", "en": "Bread" },
-          { "it": "Focaccia", "en": "Focaccia" },
-          { "it": "Base pizza 33\"", "en": "33\" pizza base" }
+          {
+            "it": "Pane",
+            "en": "Bread"
+          },
+          {
+            "it": "Focaccia",
+            "en": "Focaccia"
+          },
+          {
+            "it": "Base pizza 33\"",
+            "en": "33\" pizza base"
+          }
         ]
       },
       {
-        "etichetta": { "it": "04 · La dispensa", "en": "04 · The pantry" },
-        "titolo": { "it": "Forno secco & snack", "en": "Dry bakes & snacks" },
+        "etichetta": {
+          "it": "04 · La dispensa",
+          "en": "04 · The pantry"
+        },
+        "titolo": {
+          "it": "Forno secco & snack",
+          "en": "Dry bakes & snacks"
+        },
         "descrizione": {
           "it": "Produzione artigianale di prodotti da forno secchi senza lattosio: un prodotto di qualità, adatto a tutti.",
           "en": "Artisan production of lactose-free dry baked goods: quality products, suitable for everyone."
         },
         "immagine": "/images/forno-secco.jpg",
         "tags": [
-          { "it": "Biscotti", "en": "Biscuits" },
-          { "it": "Grissini di riso", "en": "Rice breadsticks" },
-          { "it": "Snack salati", "en": "Savoury snacks" }
+          {
+            "it": "Biscotti",
+            "en": "Biscuits"
+          },
+          {
+            "it": "Grissini di riso",
+            "en": "Rice breadsticks"
+          },
+          {
+            "it": "Snack salati",
+            "en": "Savoury snacks"
+          }
         ]
       },
       {
-        "etichetta": { "it": "05 · La trasformazione", "en": "05 · Processing" },
-        "titolo": { "it": "Conserve dolci e salate", "en": "Sweet & savoury preserves" },
+        "etichetta": {
+          "it": "05 · La trasformazione",
+          "en": "05 · Processing"
+        },
+        "titolo": {
+          "it": "Conserve dolci e salate",
+          "en": "Sweet & savoury preserves"
+        },
         "descrizione": {
           "it": "Composte che fanno risaltare il gusto: prodotti territoriali e non trattati, lavorati in modo semplice ma sicuro, con la minor quantità di zucchero possibile. Produciamo anche in conto lavorazione per aziende agricole e non solo.",
           "en": "Compotes that bring out flavour: local, untreated produce, processed simply but safely, with as little sugar as possible. We also offer contract processing for farms and beyond."
         },
         "immagine": "/images/conserve.jpg",
         "tags": [
-          { "it": "Composte", "en": "Compotes" },
-          { "it": "Conserve salate", "en": "Savoury preserves" },
-          { "it": "Conto lavorazione", "en": "Contract processing" }
+          {
+            "it": "Composte",
+            "en": "Compotes"
+          },
+          {
+            "it": "Conserve salate",
+            "en": "Savoury preserves"
+          },
+          {
+            "it": "Conto lavorazione",
+            "en": "Contract processing"
+          }
         ]
       }
     ]
   },
   "catalogo": {
-    "eyebrow": { "it": "Catalogo online", "en": "Online catalogue" },
+    "eyebrow": {
+      "it": "Catalogo online",
+      "en": "Online catalogue"
+    },
     "titolo": {
       "it": "Tutti i prodotti, sempre aggiornati.",
       "en": "All our products, always up to date."
@@ -161,16 +260,34 @@
       "it": "Aggiornato in tempo reale dal laboratorio",
       "en": "Updated in real time from the lab"
     },
-    "testoBottone": { "it": "Apri il catalogo →", "en": "Open the catalogue →" },
+    "testoBottone": {
+      "it": "Apri il catalogo →",
+      "en": "Open the catalogue →"
+    },
     "linkCatalogo": "https://gest.cooki.it/public/Ambrosia",
-    "anteprimaNome": { "it": "Focaccia classica", "en": "Classic focaccia" },
-    "anteprimaImmagineLabel": { "it": "Focaccia del giorno", "en": "Focaccia of the day" },
+    "anteprimaNome": {
+      "it": "Focaccia classica",
+      "en": "Classic focaccia"
+    },
+    "anteprimaImmagineLabel": {
+      "it": "Focaccia del giorno",
+      "en": "Focaccia of the day"
+    },
     "anteprimaImmagine": "/images/panificati.jpg",
-    "anteprimaPrezzo": { "it": "€ 4,50 · alla teglia", "en": "€ 4.50 · per tray" }
+    "anteprimaPrezzo": {
+      "it": "€ 4,50 · alla teglia",
+      "en": "€ 4.50 · per tray"
+    }
   },
   "contatti": {
-    "eyebrow": { "it": "Contatti", "en": "Contact" },
-    "titolo": { "it": "Passa a trovarci.", "en": "Come and visit us." },
+    "eyebrow": {
+      "it": "Contatti",
+      "en": "Contact"
+    },
+    "titolo": {
+      "it": "Passa a trovarci.",
+      "en": "Come and visit us."
+    },
     "sottotitolo": {
       "it": "Il laboratorio è il cuore di tutto: qui nasce ogni prodotto e qui puoi ritirare i tuoi ordini.",
       "en": "The lab is the heart of everything: this is where every product is born and where you can collect your orders."
@@ -185,29 +302,77 @@
     "instagram": "https://www.instagram.com/ambrosia_laboratorio_/",
     "facebook": "https://www.facebook.com/profile.php?id=61570456132709&locale=it_IT",
     "whatsapp": "393476137994",
-    "labelTelefono": { "it": "Telefono", "en": "Phone" },
-    "labelEmail": { "it": "Email", "en": "Email" },
-    "labelCatalogo": { "it": "Catalogo", "en": "Catalogue" },
-    "labelSeguici": { "it": "Seguici", "en": "Follow us" },
-    "sfogliaOnline": { "it": "Sfoglia online →", "en": "Browse online →" },
-    "apriMappa": { "it": "Apri in mappa →", "en": "Open in maps →" }
+    "labelTelefono": {
+      "it": "Telefono",
+      "en": "Phone"
+    },
+    "labelEmail": {
+      "it": "Email",
+      "en": "Email"
+    },
+    "labelCatalogo": {
+      "it": "Catalogo",
+      "en": "Catalogue"
+    },
+    "labelSeguici": {
+      "it": "Seguici",
+      "en": "Follow us"
+    },
+    "sfogliaOnline": {
+      "it": "Sfoglia online →",
+      "en": "Browse online →"
+    },
+    "apriMappa": {
+      "it": "Apri in mappa →",
+      "en": "Open in maps →"
+    }
   },
   "menu": {
-    "chiSiamo": { "it": "Chi siamo", "en": "About" },
-    "cosaFacciamo": { "it": "Cosa facciamo", "en": "What we do" },
-    "catalogo": { "it": "Catalogo", "en": "Catalogue" },
-    "partner": { "it": "Partner", "en": "Partners" },
-    "contatti": { "it": "Contatti", "en": "Contact" },
-    "catalogoOnline": { "it": "Catalogo online", "en": "Online catalogue" },
-    "scopriProdotti": { "it": "Scopri i prodotti", "en": "Discover our products" },
-    "nostraStoria": { "it": "La nostra storia", "en": "Our story" }
+    "chiSiamo": {
+      "it": "Chi siamo",
+      "en": "About"
+    },
+    "cosaFacciamo": {
+      "it": "Cosa facciamo",
+      "en": "What we do"
+    },
+    "catalogo": {
+      "it": "Catalogo",
+      "en": "Catalogue"
+    },
+    "partner": {
+      "it": "Partner",
+      "en": "Partners"
+    },
+    "contatti": {
+      "it": "Contatti",
+      "en": "Contact"
+    },
+    "catalogoOnline": {
+      "it": "Catalogo online",
+      "en": "Online catalogue"
+    },
+    "scopriProdotti": {
+      "it": "Scopri i prodotti",
+      "en": "Discover our products"
+    },
+    "nostraStoria": {
+      "it": "La nostra storia",
+      "en": "Our story"
+    }
   },
   "footer": {
     "copyright": {
       "it": "© 2026 Ambrosia Laboratorio · Certificato AiC",
       "en": "© 2026 Ambrosia Laboratorio · AiC certified"
     },
-    "claim": { "it": "Senza glutine per scelta.", "en": "Gluten-free by choice." },
-    "naviga": { "it": "Naviga", "en": "Navigate" }
+    "claim": {
+      "it": "Senza glutine per scelta.",
+      "en": "Gluten-free by choice."
+    },
+    "naviga": {
+      "it": "Naviga",
+      "en": "Navigate"
+    }
   }
 }
