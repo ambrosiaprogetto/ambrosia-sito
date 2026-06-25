@@ -1,6 +1,5 @@
 import { defineConfig } from 'tinacms';
 
-// Branch del repository su cui Tina salva le modifiche
 const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
@@ -9,10 +8,8 @@ const branch =
 
 export default defineConfig({
   branch,
-  // Questi due valori arrivano dall'account Tina Cloud gratuito (Fase 4).
   clientId: process.env.PUBLIC_TINA_CLIENT_ID || '',
   token: process.env.TINA_TOKEN || '',
-
   build: {
     outputFolder: 'admin',
     publicFolder: 'public',
@@ -23,7 +20,6 @@ export default defineConfig({
       publicFolder: 'public',
     },
   },
-
   schema: {
     collections: [
       {
@@ -33,141 +29,284 @@ export default defineConfig({
         format: 'json',
         match: { include: 'contenuti' },
         ui: {
-          // Niccolò non può creare/eliminare: c'è un solo file di contenuti
           allowedActions: { create: false, delete: false },
         },
         fields: [
-          // ---------- SITO ----------
           {
-            type: 'object',
-            name: 'sito',
-            label: 'Impostazioni generali',
-            description: 'Titolo e descrizione che appaiono su Google e quando si condivide il sito.',
+            type: 'object', name: 'sito', label: 'Impostazioni generali',
+            description: 'Titolo e descrizione per Google.',
             fields: [
-              { type: 'string', name: 'titoloPagina', label: 'Titolo della pagina (Google)' },
-              { type: 'string', name: 'descrizione', label: 'Descrizione (Google)', ui: { component: 'textarea' } },
+              { type: 'object', name: 'titoloPagina', label: 'Titolo pagina (Google)', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'descrizione', label: 'Descrizione (Google)', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' }, },
+                { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' }, },
+              ] },
             ],
           },
-
-          // ---------- HERO ----------
           {
-            type: 'object',
-            name: 'hero',
-            label: 'Apertura (prima schermata)',
-            description: 'La grande frase in cima al sito.',
+            type: 'object', name: 'hero', label: 'Apertura (prima schermata)',
             fields: [
-              { type: 'string', name: 'eyebrow', label: 'Sopra-titolo' },
-              { type: 'string', name: 'titoloParte1', label: 'Titolo — prima parte' },
-              { type: 'string', name: 'titoloEnfasi', label: 'Titolo — parola evidenziata (in arancio corsivo)' },
-              { type: 'string', name: 'titoloParte2', label: 'Titolo — parte finale' },
-              { type: 'string', name: 'sottotitolo', label: 'Sottotitolo', ui: { component: 'textarea' } },
+              { type: 'object', name: 'eyebrow', label: 'Sopra-titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'titoloParte1', label: 'Titolo — prima parte', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'titoloEnfasi', label: 'Titolo — parola evidenziata', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'titoloParte2', label: 'Titolo — parte finale', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'sottotitolo', label: 'Sottotitolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' }, },
+                { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' }, },
+              ] },
               { type: 'image', name: 'immagine', label: 'Foto di apertura' },
-              { type: 'string', name: 'immagineAlt', label: 'Descrizione foto (per accessibilità)' },
+              { type: 'object', name: 'immagineAlt', label: 'Descrizione foto', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
               {
                 type: 'object', name: 'tags', label: 'Etichette', list: true,
-                ui: { itemProps: (i) => ({ label: i?.testo }) },
-                fields: [{ type: 'string', name: 'testo', label: 'Testo' }],
+                ui: { itemProps: (i) => ({ label: i?.it }) },
+                fields: [
+                  { type: 'string', name: 'it', label: 'Italiano' },
+                  { type: 'string', name: 'en', label: 'English' },
+                ],
               },
             ],
           },
-
-          // ---------- CHI SIAMO ----------
           {
-            type: 'object',
-            name: 'chiSiamo',
-            label: 'Chi siamo',
+            type: 'object', name: 'chiSiamo', label: 'Chi siamo',
             fields: [
-              { type: 'string', name: 'eyebrow', label: 'Sopra-titolo' },
-              { type: 'string', name: 'titolo', label: 'Titolo sezione' },
-              { type: 'string', name: 'introForte', label: 'Frase di apertura (in evidenza)', ui: { component: 'textarea' } },
+              { type: 'object', name: 'eyebrow', label: 'Sopra-titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'titolo', label: 'Titolo sezione', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'introForte', label: 'Frase di apertura', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' }, },
+                { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' }, },
+              ] },
               {
                 type: 'object', name: 'paragrafi', label: 'Paragrafi', list: true,
-                ui: { itemProps: (i) => ({ label: i?.testo?.slice(0, 50) + '…' }) },
-                fields: [{ type: 'string', name: 'testo', label: 'Testo', ui: { component: 'textarea' } }],
+                ui: { itemProps: (i) => ({ label: i?.it?.slice(0,40) }) },
+                fields: [
+                  { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' } },
+                  { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' } },
+                ],
               },
-              { type: 'string', name: 'certificazione', label: 'Riga certificazione AiC', ui: { component: 'textarea' } },
-              { type: 'string', name: 'citazione', label: 'Citazione (tra virgolette)' },
-              { type: 'string', name: 'noteCitazione', label: 'Testo sotto la citazione', ui: { component: 'textarea' } },
+              { type: 'object', name: 'certificazione', label: 'Riga certificazione AiC', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' }, },
+                { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' }, },
+              ] },
+              { type: 'object', name: 'citazione', label: 'Citazione', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'noteCitazione', label: 'Testo sotto la citazione', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' }, },
+                { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' }, },
+              ] },
             ],
           },
-
-          // ---------- COSA FACCIAMO ----------
           {
-            type: 'object',
-            name: 'cosaFacciamo',
-            label: 'Cosa facciamo',
+            type: 'object', name: 'cosaFacciamo', label: 'Cosa facciamo',
             fields: [
-              { type: 'string', name: 'eyebrow', label: 'Sopra-titolo' },
-              { type: 'string', name: 'titolo', label: 'Titolo sezione' },
-              { type: 'string', name: 'sottotitolo', label: 'Sottotitolo' },
+              { type: 'object', name: 'eyebrow', label: 'Sopra-titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'titolo', label: 'Titolo sezione', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'sottotitolo', label: 'Sottotitolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
               {
                 type: 'object', name: 'servizi', label: 'Servizi / prodotti', list: true,
-                ui: { itemProps: (i) => ({ label: i?.titolo }) },
+                ui: { itemProps: (i) => ({ label: i?.titolo?.it }) },
                 fields: [
-                  { type: 'string', name: 'etichetta', label: 'Etichetta (es. "01 · Su misura")' },
-                  { type: 'string', name: 'titolo', label: 'Titolo' },
-                  { type: 'string', name: 'descrizione', label: 'Descrizione', ui: { component: 'textarea' } },
+                  { type: 'object', name: 'etichetta', label: 'Etichetta', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+                  { type: 'object', name: 'titolo', label: 'Titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+                  { type: 'object', name: 'descrizione', label: 'Descrizione', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' }, },
+                { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' }, },
+              ] },
                   { type: 'image', name: 'immagine', label: 'Foto del prodotto' },
                   {
                     type: 'object', name: 'tags', label: 'Etichette', list: true,
-                    ui: { itemProps: (i) => ({ label: i?.testo }) },
-                    fields: [{ type: 'string', name: 'testo', label: 'Testo' }],
+                    ui: { itemProps: (i) => ({ label: i?.it }) },
+                    fields: [
+                      { type: 'string', name: 'it', label: 'Italiano' },
+                      { type: 'string', name: 'en', label: 'English' },
+                    ],
                   },
                 ],
               },
             ],
           },
-
-          // ---------- CATALOGO ----------
           {
-            type: 'object',
-            name: 'catalogo',
-            label: 'Catalogo online',
-            description: 'La sezione che rimanda al catalogo Cooki.',
+            type: 'object', name: 'catalogo', label: 'Catalogo online',
             fields: [
-              { type: 'string', name: 'eyebrow', label: 'Sopra-titolo' },
-              { type: 'string', name: 'titolo', label: 'Titolo' },
-              { type: 'string', name: 'descrizione', label: 'Descrizione', ui: { component: 'textarea' } },
-              { type: 'string', name: 'noteLive', label: 'Nota "aggiornato in tempo reale"' },
-              { type: 'string', name: 'testoBottone', label: 'Testo del bottone' },
+              { type: 'object', name: 'eyebrow', label: 'Sopra-titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'titolo', label: 'Titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'descrizione', label: 'Descrizione', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' }, },
+                { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' }, },
+              ] },
+              { type: 'object', name: 'noteLive', label: 'Nota tempo reale', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'testoBottone', label: 'Testo bottone', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
               { type: 'string', name: 'linkCatalogo', label: 'Link al catalogo Cooki' },
-              { type: 'string', name: 'anteprimaImmagineLabel', label: 'Anteprima — etichetta immagine (se senza foto)' },
-              { type: 'image', name: 'anteprimaImmagine', label: 'Anteprima — foto prodotto' },
-              { type: 'string', name: 'anteprimaNome', label: 'Anteprima — nome prodotto' },
-              { type: 'string', name: 'anteprimaPrezzo', label: 'Anteprima — prezzo' },
+              { type: 'object', name: 'anteprimaNome', label: 'Anteprima — nome prodotto', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'anteprimaImmagineLabel', label: 'Anteprima — etichetta', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'image', name: 'anteprimaImmagine', label: 'Anteprima — foto' },
+              { type: 'object', name: 'anteprimaPrezzo', label: 'Anteprima — prezzo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
             ],
           },
-
-          // ---------- CONTATTI ----------
           {
-            type: 'object',
-            name: 'contatti',
-            label: 'Contatti',
+            type: 'object', name: 'contatti', label: 'Contatti',
             fields: [
-              { type: 'string', name: 'eyebrow', label: 'Sopra-titolo' },
-              { type: 'string', name: 'titolo', label: 'Titolo' },
-              { type: 'string', name: 'sottotitolo', label: 'Sottotitolo', ui: { component: 'textarea' } },
-              { type: 'string', name: 'telefono', label: 'Telefono (come mostrato)' },
-              { type: 'string', name: 'telefonoLink', label: 'Telefono (per il click, senza spazi)' },
+              { type: 'object', name: 'eyebrow', label: 'Sopra-titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'titolo', label: 'Titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'sottotitolo', label: 'Sottotitolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' }, },
+                { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' }, },
+              ] },
+              { type: 'string', name: 'telefono', label: 'Telefono (mostrato)' },
+              { type: 'string', name: 'telefonoLink', label: 'Telefono (link, senza spazi)' },
               { type: 'string', name: 'email', label: 'Email' },
               { type: 'string', name: 'nomeLuogo', label: 'Nome del luogo' },
               { type: 'image', name: 'immagine', label: 'Foto del laboratorio' },
               { type: 'string', name: 'indirizzo', label: 'Indirizzo', ui: { component: 'textarea' } },
-              { type: 'string', name: 'linkMappa', label: 'Link a Google Maps' },
+              { type: 'string', name: 'linkMappa', label: 'Link Google Maps' },
               { type: 'string', name: 'instagram', label: 'Link Instagram' },
               { type: 'string', name: 'facebook', label: 'Link Facebook' },
-              { type: 'string', name: 'whatsapp', label: 'WhatsApp (solo numero, es. 393476137994)' },
+              { type: 'string', name: 'whatsapp', label: 'WhatsApp (solo numero)' },
+              { type: 'object', name: 'labelTelefono', label: 'Etichetta "Telefono"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'labelEmail', label: 'Etichetta "Email"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'labelCatalogo', label: 'Etichetta "Catalogo"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'labelSeguici', label: 'Etichetta "Seguici"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'sfogliaOnline', label: 'Testo "Sfoglia online"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'apriMappa', label: 'Testo "Apri in mappa"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
             ],
           },
-
-          // ---------- FOOTER ----------
           {
-            type: 'object',
-            name: 'footer',
-            label: 'Fondo pagina',
+            type: 'object', name: 'menu', label: 'Menu e bottoni',
             fields: [
-              { type: 'string', name: 'copyright', label: 'Riga copyright' },
-              { type: 'string', name: 'claim', label: 'Claim finale' },
+              { type: 'object', name: 'chiSiamo', label: 'Voce "Chi siamo"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'cosaFacciamo', label: 'Voce "Cosa facciamo"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'catalogo', label: 'Voce "Catalogo"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'partner', label: 'Voce "Partner"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'contatti', label: 'Voce "Contatti"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'catalogoOnline', label: 'Bottone "Catalogo online"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'scopriProdotti', label: 'Bottone "Scopri i prodotti"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'nostraStoria', label: 'Bottone "La nostra storia"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+            ],
+          },
+          {
+            type: 'object', name: 'footer', label: 'Fondo pagina',
+            fields: [
+              { type: 'object', name: 'copyright', label: 'Riga copyright', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'claim', label: 'Claim finale', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+              { type: 'object', name: 'naviga', label: 'Etichetta "Naviga"', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
             ],
           },
         ],
@@ -183,25 +322,30 @@ export default defineConfig({
         },
         fields: [
           {
-            type: 'boolean',
-            name: 'attiva',
+            type: 'boolean', name: 'attiva',
             label: 'Pagina Partner attiva (visibile a tutti)',
-            description: 'Lascia spento finché la pagina non è pronta. Quando accendi, la voce "Partner" appare nel menu e la pagina diventa pubblica.',
+            description: 'Lascia spento finche la pagina non e pronta.',
           },
-          { type: 'string', name: 'eyebrow', label: 'Sopra-titolo' },
-          { type: 'string', name: 'titolo', label: 'Titolo' },
-          { type: 'string', name: 'sottotitolo', label: 'Sottotitolo', ui: { component: 'textarea' } },
+          { type: 'object', name: 'eyebrow', label: 'Sopra-titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+          { type: 'object', name: 'titolo', label: 'Titolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', },
+                { type: 'string', name: 'en', label: 'English', },
+              ] },
+          { type: 'object', name: 'sottotitolo', label: 'Sottotitolo', fields: [
+                { type: 'string', name: 'it', label: 'Italiano', ui: { component: 'textarea' }, },
+                { type: 'string', name: 'en', label: 'English', ui: { component: 'textarea' }, },
+              ] },
           {
-            type: 'object',
-            name: 'partner',
-            label: 'Aziende partner',
-            list: true,
+            type: 'object', name: 'partner', label: 'Aziende partner', list: true,
             ui: { itemProps: (i) => ({ label: i?.nome }) },
             fields: [
               { type: 'string', name: 'nome', label: 'Nome azienda' },
               { type: 'image', name: 'logo', label: 'Logo (opzionale)' },
               { type: 'string', name: 'sito', label: 'Sito web (opzionale)' },
-              { type: 'string', name: 'descrizione', label: 'Breve descrizione (opzionale)' },
+              { type: 'string', name: 'descrizione', label: 'Descrizione (opzionale)' },
             ],
           },
         ],
