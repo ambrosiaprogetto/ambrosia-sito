@@ -3,7 +3,7 @@ import '../styles/global.css';
 import contenuti from '../../content/contenuti.json';
 import partnerData from '../../content/partner.json';
 
-const { sito, catalogo, contatti, footer } = contenuti;
+const { catalogo, contatti, menu, footer } = contenuti;
 const { attiva, eyebrow, titolo, sottotitolo, partner } = partnerData;
 ---
 <!DOCTYPE html>
@@ -25,29 +25,33 @@ const { attiva, eyebrow, titolo, sottotitolo, partner } = partnerData;
     <a href="/" class="brand"><img src="/images/logo-full.png" alt="Ambrosia Laboratorio" /></a>
     <nav id="navmenu">
       <ul>
-        <li><a href="/#chi-siamo">Chi siamo</a></li>
-        <li><a href="/#cosa-facciamo">Cosa facciamo</a></li>
-        <li><a href="/#catalogo">Catalogo</a></li>
-        <li><a href="/partner">Partner</a></li>
-        <li><a href="/#contatti">Contatti</a></li>
-        <li><a href={catalogo.linkCatalogo} target="_blank" rel="noopener" class="nav-cta">Catalogo online</a></li>
+        <li><a href="/#chi-siamo"><span data-it={menu.chiSiamo.it} data-en={menu.chiSiamo.en}>{menu.chiSiamo.it}</span></a></li>
+        <li><a href="/#cosa-facciamo"><span data-it={menu.cosaFacciamo.it} data-en={menu.cosaFacciamo.en}>{menu.cosaFacciamo.it}</span></a></li>
+        <li><a href="/#catalogo"><span data-it={menu.catalogo.it} data-en={menu.catalogo.en}>{menu.catalogo.it}</span></a></li>
+        <li><a href="/partner"><span data-it={menu.partner.it} data-en={menu.partner.en}>{menu.partner.it}</span></a></li>
+        <li><a href="/#contatti"><span data-it={menu.contatti.it} data-en={menu.contatti.en}>{menu.contatti.it}</span></a></li>
+        <li><a href={catalogo.linkCatalogo} target="_blank" rel="noopener" class="nav-cta"><span data-it={menu.catalogoOnline.it} data-en={menu.catalogoOnline.en}>{menu.catalogoOnline.it}</span></a></li>
+        <li class="lang-li"><button class="lang-btn" id="langBtn" aria-label="Switch language" type="button"><span class="flag" id="flag">🇬🇧</span><span class="lang-code" id="langCode">EN</span></button></li>
       </ul>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Apri il menu">☰</button>
+    <div class="nav-mobile-right">
+      <button class="lang-btn lang-btn-mobile" id="langBtnMobile" aria-label="Switch language" type="button"><span class="flag" id="flagMobile">🇬🇧</span></button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
   </div>
 </header>
 
 <section class="partner-page">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">{eyebrow}</span>
-      <h2>{titolo}</h2>
-      <p>{sottotitolo}</p>
+      <span class="eyebrow"><span data-it={eyebrow.it} data-en={eyebrow.en}>{eyebrow.it}</span></span>
+      <h2><span data-it={titolo.it} data-en={titolo.en}>{titolo.it}</span></h2>
+      <p><span data-it={sottotitolo.it} data-en={sottotitolo.en}>{sottotitolo.it}</span></p>
     </div>
 
     {!attiva && (
       <div class="partner-draft">
-        Questa pagina non è ancora pubblica. Sarà visibile a tutti quando verrà attivata.
+        <span data-it="Questa pagina non è ancora pubblica. Sarà visibile a tutti quando verrà attivata." data-en="This page is not public yet. It will be visible to everyone once activated.">Questa pagina non è ancora pubblica. Sarà visibile a tutti quando verrà attivata.</span>
       </div>
     )}
 
@@ -75,27 +79,27 @@ const { attiva, eyebrow, titolo, sottotitolo, partner } = partnerData;
       <div class="foot-brand">Ambrosia<small>Laboratorio · Canavese</small></div>
       <div class="foot-links">
         <div class="foot-col">
-          <h5>Naviga</h5>
-          <a href="/#chi-siamo">Chi siamo</a>
-          <a href="/#cosa-facciamo">Cosa facciamo</a>
-          <a href="/#catalogo">Catalogo</a>
-          <a href="/#contatti">Contatti</a>
+          <h5><span data-it={footer.naviga.it} data-en={footer.naviga.en}>{footer.naviga.it}</span></h5>
+          <a href="/#chi-siamo"><span data-it={menu.chiSiamo.it} data-en={menu.chiSiamo.en}>{menu.chiSiamo.it}</span></a>
+          <a href="/#cosa-facciamo"><span data-it={menu.cosaFacciamo.it} data-en={menu.cosaFacciamo.en}>{menu.cosaFacciamo.it}</span></a>
+          <a href="/#catalogo"><span data-it={menu.catalogo.it} data-en={menu.catalogo.en}>{menu.catalogo.it}</span></a>
+          <a href="/#contatti"><span data-it={menu.contatti.it} data-en={menu.contatti.en}>{menu.contatti.it}</span></a>
         </div>
         <div class="foot-col">
-          <h5>Contatti</h5>
+          <h5><span data-it={contatti.eyebrow.it} data-en={contatti.eyebrow.en}>{contatti.eyebrow.it}</span></h5>
           <a href={`tel:${contatti.telefonoLink}`}>{contatti.telefono}</a>
           <a href={`mailto:${contatti.email}`}>{contatti.email}</a>
           <a href={contatti.linkMappa} target="_blank" rel="noopener">Mercenasco (TO)</a>
         </div>
         <div class="foot-col">
-          <h5>Catalogo</h5>
-          <a href={catalogo.linkCatalogo} target="_blank" rel="noopener">Catalogo online →</a>
+          <h5><span data-it={menu.catalogo.it} data-en={menu.catalogo.en}>{menu.catalogo.it}</span></h5>
+          <a href={catalogo.linkCatalogo} target="_blank" rel="noopener"><span data-it={menu.catalogoOnline.it} data-en={menu.catalogoOnline.en}>{menu.catalogoOnline.it}</span></a>
         </div>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>{footer.copyright}</span>
-      <span>{footer.claim}</span>
+      <span><span data-it={footer.copyright.it} data-en={footer.copyright.en}>{footer.copyright.it}</span></span>
+      <span><span data-it={footer.claim.it} data-en={footer.claim.en}>{footer.claim.it}</span></span>
     </div>
   </div>
 </footer>
@@ -105,6 +109,29 @@ const { attiva, eyebrow, titolo, sottotitolo, partner } = partnerData;
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8));
   const btn = document.getElementById('menuBtn'), menu = document.getElementById('navmenu');
   btn.addEventListener('click', () => { const o = menu.classList.toggle('open'); btn.textContent = o ? '✕' : '☰'; });
+
+  function applyLang(lang){
+    document.querySelectorAll('[data-it][data-en]').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (val !== null) el.textContent = val;
+    });
+    document.documentElement.lang = lang;
+    const next = lang === 'it' ? 'en' : 'it';
+    const flag = next === 'en' ? '🇬🇧' : '🇮🇹';
+    const f = document.getElementById('flag'); if (f) f.textContent = flag;
+    const c = document.getElementById('langCode'); if (c) c.textContent = next.toUpperCase();
+    const fm = document.getElementById('flagMobile'); if (fm) fm.textContent = flag;
+    try { localStorage.setItem('ambrosia_lang', lang); } catch(e){}
+  }
+  function toggleLang(){
+    const current = document.documentElement.lang === 'en' ? 'en' : 'it';
+    applyLang(current === 'it' ? 'en' : 'it');
+  }
+  document.getElementById('langBtn').addEventListener('click', toggleLang);
+  document.getElementById('langBtnMobile').addEventListener('click', toggleLang);
+  let saved = 'it';
+  try { saved = localStorage.getItem('ambrosia_lang') || 'it'; } catch(e){}
+  applyLang(saved);
 </script>
 </body>
 </html>
