@@ -1,7 +1,13 @@
 {
   "attiva": false,
-  "eyebrow": { "it": "Partner", "en": "Partners" },
-  "titolo": { "it": "Le aziende con cui lavoriamo.", "en": "The companies we work with." },
+  "eyebrow": {
+    "it": "Partner",
+    "en": "Partners"
+  },
+  "titolo": {
+    "it": "Soc. Agricola \"CATELLA\" S.S.",
+    "en": "Soc. Agricola \"CATELLA\" S.S."
+  },
   "sottotitolo": {
     "it": "Collaboriamo con realtà del territorio e produttori selezionati, per portare in laboratorio materie prime di cui ci fidiamo.",
     "en": "We work with local businesses and selected producers, to bring into the lab ingredients we trust."
