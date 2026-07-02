@@ -278,8 +278,8 @@
     },
     "anteprimaImmagine": "/images/panificati.jpg",
     "anteprimaPrezzo": {
-      "it": "€€€ · alla teglia",
-      "en": "€€€ · per tray"
+      "it": "",
+      "en": ""
     }
   },
   "contatti": {
